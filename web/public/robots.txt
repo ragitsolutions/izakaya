@@ -1,0 +1,7 @@
+# TODO: confirmar con el cliente el dominio definitivo y actualizar aquí y en sitemap.xml.
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /reserva/
+
+Sitemap: https://www.izakaya-restaurante.es/sitemap.xml

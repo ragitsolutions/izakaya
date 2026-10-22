@@ -1,0 +1,26 @@
+# Necesario en Hostinger (Apache) para que las rutas de React Router
+# (p. ej. /carta, /reservas, /admin) funcionen al entrar directamente o
+# recargar la página, y no den error 404.
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Si el archivo o directorio solicitado existe de verdad, se sirve tal cual.
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # En cualquier otro caso, se sirve index.html y React Router decide la ruta.
+  RewriteRule ^ /index.html [L]
+</IfModule>
+
+# Compresión y caché básicas (opcional, mejora el rendimiento).
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+</IfModule>

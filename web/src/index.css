@@ -1,0 +1,105 @@
+@import 'tailwindcss';
+
+@theme {
+  /* Paleta: blanco, casi negro, un único acento rojo japonés (bermellón/hinomaru) */
+  --color-paper: #ffffff;
+  --color-paper-soft: #faf7f4;
+  --color-ink: #1a1613;
+  --color-ink-soft: #4a433d;
+  --color-line: #e6e0d8;
+  --color-line-soft: #f0ebe4;
+  --color-accent: #bc3a2d;
+  --color-accent-dark: #8f2a21;
+  --color-accent-soft: #f4e3df;
+
+  --font-display: 'Shippori Mincho', 'Noto Serif JP', serif;
+  --font-sans: 'Inter', 'Noto Sans JP', system-ui, sans-serif;
+
+  --animate-fade-up: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  --animate-fade-in: fade-in 0.8s ease forwards;
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(1.25rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-paper text-ink font-sans antialiased;
+    font-feature-settings: 'palt' 1;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display font-medium tracking-wide text-ink;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+  }
+
+  ::selection {
+    background: var(--color-accent-soft);
+    color: var(--color-accent-dark);
+  }
+}
+
+@layer utilities {
+  /* Oculta visualmente pero mantiene accesible a lectores de pantalla */
+  .sr-only-focusable:not(:focus) {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .reveal {
+    opacity: 0;
+  }
+  .reveal.is-visible {
+    animation: var(--animate-fade-up);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal {
+      opacity: 1;
+      animation: none !important;
+    }
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}

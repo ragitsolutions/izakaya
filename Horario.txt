@@ -1,0 +1,7 @@
+jueves	20:00–23:00
+viernes	20:00–23:00
+sábado	13:00–16:00, 20:00–23:00
+domingo	13:00–16:00
+lunes	Cerrado
+martes	Cerrado
+miércoles	20:00–23:00
