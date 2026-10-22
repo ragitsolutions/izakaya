@@ -69,7 +69,6 @@ const en: Dictionary = {
     adminTitle: 'Admin panel',
     adminText: 'Bookings view, floor plan and restaurant settings.',
     adminCta: 'Open the panel',
-    adminCreds: 'Demo username and password',
     resetTitle: 'Reset test data',
     resetText: 'Clears the bookings and settings stored in this browser and regenerates the sample data.',
     resetCta: 'Reset data',
@@ -252,7 +251,6 @@ const en: Dictionary = {
     nav: {
       reservations: 'Reservations',
       settings: 'Settings',
-      logout: 'Log out',
       backToSite: 'View site',
     },
     reservations: {

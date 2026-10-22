@@ -1,7 +1,6 @@
 import { useEffect, useState, type ReactNode } from 'react'
 import { useLanguage } from '@/i18n/LanguageContext'
 import { useDocumentHead } from '@/hooks/useDocumentHead'
-import { adminConfig } from '@/config/admin.config'
 import { reservationService } from '@/services/reservationService'
 import { Section } from '@/components/ui/Section'
 import { SectionHeading } from '@/components/ui/SectionHeading'
@@ -77,9 +76,6 @@ export default function Demo() {
           <Button to="/admin" variant="outline">
             {d.adminCta}
           </Button>
-          <p className="mt-3 text-xs text-ink-soft">
-            {d.adminCreds}: {adminConfig.demoUsername} / {adminConfig.demoPassword}
-          </p>
         </DemoCard>
       </div>
 

@@ -98,7 +98,12 @@ funciones sin tocar ningún componente que las llame:
   estáticos directamente** — si añades un sitio nuevo que muestre el
   horario, sigue ese patrón.
 - **`adminAuthService.ts`** — compara con `config/admin.config.ts` y guarda
-  una bandera. No es seguridad real, es deliberado (ver README).
+  una bandera. No es seguridad real, es deliberado (ver README). **Ahora
+  mismo no está conectado a nada**: `/admin` es público (sin login), para
+  poder enseñárselo al cliente sin fricción — hay un botón "Admin" junto al
+  de "Reservar" en la cabecera. `AdminLogin.tsx` / `useAdminAuth.ts` /
+  `adminAuthService.ts` siguen en el proyecto, listos para volver a
+  exigirse en `AdminApp.tsx` cuando se conecte autenticación real.
 
 `ReservationError` (clase exportada de `reservationService.ts`) es el único
 tipo de error que lanzan los services; los componentes lo capturan para

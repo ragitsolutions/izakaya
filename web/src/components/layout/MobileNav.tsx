@@ -69,11 +69,14 @@ export function MobileNav({
           ))}
         </nav>
 
-        <div className="mt-8 flex flex-col gap-6">
+        <div className="mt-8 flex flex-col gap-3">
           <Button to="/reservas" onClick={onClose} className="w-full">
             {t.cta.reserve}
           </Button>
-          <LanguageSwitch className="justify-center" />
+          <Button to="/admin" variant="outline" onClick={onClose} className="w-full">
+            {t.nav.admin}
+          </Button>
+          <LanguageSwitch className="mt-2 justify-center" />
         </div>
       </div>
     </div>

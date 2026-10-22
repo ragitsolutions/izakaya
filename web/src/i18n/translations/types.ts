@@ -63,7 +63,6 @@ export interface Dictionary {
     adminTitle: string
     adminText: string
     adminCta: string
-    adminCreds: string
     resetTitle: string
     resetText: string
     resetCta: string
@@ -242,7 +241,6 @@ export interface Dictionary {
     nav: {
       reservations: string
       settings: string
-      logout: string
       backToSite: string
     }
     reservations: {

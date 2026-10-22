@@ -62,8 +62,11 @@ export function Header() {
             ))}
           </nav>
 
-          <div className="hidden items-center gap-6 lg:flex">
+          <div className="hidden items-center gap-4 lg:flex">
             <LanguageSwitch />
+            <Button to="/admin" variant="outline" className="text-xs">
+              {t.nav.admin}
+            </Button>
             <Button to="/reservas" variant="primary" className="text-xs">
               {t.cta.reserve}
             </Button>

@@ -67,9 +67,13 @@ emails simulados, las páginas de confirmar/cancelar/modificar de una
 reserva de ejemplo, el panel de administración y un botón para reiniciar
 los datos de prueba.
 
-**Panel de administración:** `/admin` — usuario `admin`, contraseña
-`izakaya2026` (definidos en `src/config/admin.config.ts`). Es solo un
-mockup: no hay autenticación real detrás.
+**Panel de administración:** `/admin` — accesible directamente, sin login,
+para poder enseñárselo al cliente sin que tenga que entrar ninguna
+credencial. También hay un botón "Admin" en la cabecera de la web pública,
+junto al de "Reservar". La maqueta de login real (`AdminLogin.tsx`,
+`useAdminAuth.ts`, `adminAuthService.ts`, credenciales de ejemplo en
+`src/config/admin.config.ts`) sigue en el proyecto sin usarse, lista para
+cuando se conecte una autenticación real (ver "Paso a producción" más abajo).
 
 Los datos de reservas, horarios y mesas se guardan en el `localStorage` del
 navegador, así que cada visitante/dispositivo tiene su propia copia de la
@@ -145,11 +149,14 @@ pieza adicional, por ejemplo:
 
 ### 4. Autenticación del panel de administración
 
-`src/services/adminAuthService.ts` compara usuario/contraseña con un valor
-fijo en `src/config/admin.config.ts` y guarda una bandera en `localStorage`.
-Antes de usarlo en producción hay que sustituirlo por autenticación real
-(usuario/contraseña con hash en servidor, o un proveedor tipo Auth0/
-Supabase Auth), y proteger las rutas `/admin/*` también del lado servidor.
+Para esta demo, `/admin` está completamente abierto (sin login) para poder
+enseñárselo al cliente sin fricción — ver "Modo demo" más arriba. La maqueta
+de login (`src/pages/admin/AdminLogin.tsx`, `src/hooks/useAdminAuth.ts`,
+`src/services/adminAuthService.ts`) sigue en el proyecto pero no está
+conectada a la ruta `/admin` (ver `AdminApp.tsx`). Antes de producción hay
+que sustituirla por autenticación real (usuario/contraseña con hash en
+servidor, o un proveedor tipo Auth0/Supabase Auth), volver a exigirla en
+`AdminApp.tsx`, y proteger las rutas `/admin/*` también del lado servidor.
 
 ## TODOs para revisar con el cliente
 

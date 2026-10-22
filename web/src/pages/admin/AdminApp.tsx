@@ -1,20 +1,18 @@
 import { Navigate, Route, Routes } from 'react-router-dom'
-import { useAdminAuth } from '@/hooks/useAdminAuth'
 import { AdminLayout } from '@/components/admin/AdminLayout'
-import { AdminLogin } from './AdminLogin'
 import AdminReservations from './AdminReservations'
 import AdminSettings from './AdminSettings'
 
+/**
+ * Sin pantalla de login: para esta demo el panel es público (se enseña
+ * directamente a los dueños desde el botón del header). La maqueta de
+ * login real queda en AdminLogin.tsx/useAdminAuth.ts/adminAuthService.ts
+ * para cuando se sustituya por autenticación real (ver README).
+ */
 export default function AdminApp() {
-  const { isAuthenticated, login, logout } = useAdminAuth()
-
-  if (!isAuthenticated) {
-    return <AdminLogin onLogin={login} />
-  }
-
   return (
     <Routes>
-      <Route element={<AdminLayout onLogout={logout} />}>
+      <Route element={<AdminLayout />}>
         <Route index element={<Navigate to="reservas" replace />} />
         <Route path="reservas" element={<AdminReservations />} />
         <Route path="configuracion" element={<AdminSettings />} />

@@ -3,7 +3,7 @@ import { useLanguage } from '@/i18n/LanguageContext'
 import { Hanko } from '@/components/ui/Hanko'
 import { LanguageSwitch } from '@/components/layout/LanguageSwitch'
 
-export function AdminLayout({ onLogout }: { onLogout: () => void }) {
+export function AdminLayout() {
   const { t } = useLanguage()
   const n = t.admin.nav
 
@@ -33,13 +33,6 @@ export function AdminLayout({ onLogout }: { onLogout: () => void }) {
             <a href="/" className="text-xs tracking-widest text-ink-soft uppercase hover:text-accent">
               {n.backToSite}
             </a>
-            <button
-              type="button"
-              onClick={onLogout}
-              className="text-xs tracking-widest text-ink-soft uppercase hover:text-accent"
-            >
-              {n.logout}
-            </button>
           </div>
         </div>
 
